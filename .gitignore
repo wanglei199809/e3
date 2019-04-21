@@ -1,4 +1,5 @@
 ﻿.metadata/
+.gitignore
 .log
 bin/
 tmp/
