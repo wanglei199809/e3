@@ -1,8 +1,7 @@
 ﻿.settings/
 .metadata/
 target/
-.gitignore
-
+e3_*/.settings/
 .project
 .classpath
 
