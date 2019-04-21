@@ -5,6 +5,13 @@
 
 <generatorConfiguration>
 	<context id="testTables" targetRuntime="MyBatis3">
+	
+		<!-- 配置生成pojo的序列化的插件  -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        
+        <!-- 配置生成pojo的toString()方法的插件 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+	
 		<commentGenerator>
 			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
 			<property name="suppressAllComments" value="true" />
