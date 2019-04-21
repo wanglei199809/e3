@@ -1,7 +1,12 @@
-﻿.metadata/
-.cache
-.snap
+﻿.settings/
+.metadata/
 .gitignore
+
+.project
+.setting
+.classpath
+
+
 .log
 bin/
 tmp/
@@ -10,7 +15,7 @@ tmp/
 *.swp
 *~.nib
 local.properties
-.settings/
+
 .loadpath
 .recommenders
 
@@ -58,6 +63,3 @@ local.properties
 .scala_dependencies
 .worksheet
 
-.project
-.setting
-.classpath
