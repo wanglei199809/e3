@@ -2,6 +2,7 @@
 .metadata/
 target/
 e3_*/.settings/
+e3_*/e3_*/.settings/
 .project
 .classpath
 
