@@ -1,5 +1,6 @@
 ﻿.settings/
 .metadata/
+target/
 .gitignore
 
 .project
