@@ -19,6 +19,12 @@
 			<artifactId>e3_manager_interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- 单元测试 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<!-- spring的依赖 -->
 		<!-- Spring -->
 		<dependency>
