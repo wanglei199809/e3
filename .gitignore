@@ -4,6 +4,7 @@ target/
 e3_*/.settings/
 e3_*/e3_*/.settings/
 generatorSqlmapCustom/.settings/
+pagehelper/.settings/
 .project
 .classpath
 
