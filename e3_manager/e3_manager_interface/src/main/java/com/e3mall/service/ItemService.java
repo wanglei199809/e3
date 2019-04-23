@@ -6,6 +6,7 @@
  */
 package com.e3mall.service;
 
+import com.e3mall.common.pojo.EasyUIDataGridResult;
 import com.e3mall.pojo.TbItem;
 
 /**
@@ -24,4 +25,13 @@ public interface ItemService {
 	 * @param id
 	 */
 	TbItem queryTbItemById(Long id);
+
+	/**
+	 * 分页查询商品信息
+	 * <p>Title: getItemList</p>
+	 * <p>@date 2019年4月24日 上午2:20:08</p>
+	 * @param page
+	 * @param rows
+	 */
+	EasyUIDataGridResult getItemList(Integer page, Integer rows);
 }
