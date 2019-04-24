@@ -85,4 +85,20 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
+	/* 
+	 * @see com.e3mall.service.ItemService#getItemParamList(java.lang.Integer, java.lang.Integer) 
+	 */
+	@Override
+	public EasyUIDataGridResult getItemParamList(Integer page, Integer rows) {
+		//设置分页信息
+		PageHelper.startPage(page, rows);
+		//执行查询
+		//TbItemParamExample example = new TbItemParamExample();
+		
+		//取分页信息
+		
+		//创建返回结果对象
+		return null;
+	}
+
 }

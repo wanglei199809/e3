@@ -34,4 +34,13 @@ public interface ItemService {
 	 * @param rows
 	 */
 	EasyUIDataGridResult getItemList(Integer page, Integer rows);
+
+	/**
+	 * 分页查询商品规格参数信息
+	 * <p>Title: getItemParamList</p>
+	 * <p>@date 2019年4月24日 下午1:17:38</p>
+	 * @param page
+	 * @param rows
+	 */
+	EasyUIDataGridResult getItemParamList(Integer page, Integer rows);
 }

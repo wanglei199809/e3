@@ -24,12 +24,21 @@ import com.e3mall.service.ItemService;
  * @version 1.0
  */
 @Controller
-@RequestMapping(value="/item")
 public class ItemController {
 	
+	/**
+	 * 商品服务
+	 */
 	@Autowired
 	private ItemService itemService;
 	
+	/**
+	 * 通过id获取商品信息
+	 * <p>Title: getTbItemById</p>
+	 * <p>@date 2019年4月24日 下午1:12:21</p>
+	 * @param itemId
+	 * @return
+	 */
 	@RequestMapping(value="/getItemById/{itemId}")
 	@ResponseBody
 	public TbItem getTbItemById(@PathVariable Long itemId){
@@ -37,11 +46,29 @@ public class ItemController {
 		return item;
 	}
 	
-	@RequestMapping(value="/list")
+	/**
+	 * 查询商品列表
+	 * <p>Title: queryItemList</p>
+	 * <p>@date 2019年4月24日 下午1:12:08</p>
+	 * @param page
+	 * @param rows
+	 */
+	@RequestMapping(value="/item/list")
 	@ResponseBody
 	public EasyUIDataGridResult queryItemList(Integer page,Integer rows){
 		EasyUIDataGridResult result = itemService.getItemList(page, rows);
 		return result;
-
+	}
+	
+	/**
+	 * 查询商品规格参数
+	 * <p>Title: queryItemParmList</p>
+	 * <p>@date 2019年4月24日 下午1:15:32</p>
+	 */
+	@RequestMapping(value="/item/param/list")
+	@ResponseBody
+	public EasyUIDataGridResult queryItemParmList(Integer page,Integer rows){
+		EasyUIDataGridResult result = itemService.getItemParamList(page,rows);
+		return result;
 	}
 }
