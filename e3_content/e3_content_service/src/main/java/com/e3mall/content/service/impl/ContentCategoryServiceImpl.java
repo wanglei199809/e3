@@ -8,7 +8,9 @@ package com.e3mall.content.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -109,4 +111,39 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 		return E3Result.ok();
 	}
 
+	/* 
+	 * @see com.e3mall.content.service.ContentCategoryService#deleteContentCategoryById(java.lang.Long) 
+	 */
+	@Override
+	public Map<String,String> deleteContentCategoryById(Long id) {
+		//首先根据id获取该删除信息
+		TbContentCategory contentCategory = contentCategoryMapper.selectByPrimaryKey(id);	
+		Map<String, String> map = new HashMap<String,String>();
+		if (contentCategory.getIsParent()) {
+			map.put("status", "false");
+			map.put("msg", "不可以删除父节点！");
+		}else {
+			//1、根据id删除记录。
+			contentCategoryMapper.deleteByPrimaryKey(id);
+			//2、判断父节点下是否还有子节点，如果没有需要把父节点的isparent改为false
+			//根据parentId查询节点列表
+			TbContentCategoryExample example = new TbContentCategoryExample();
+			//创建查询工具,设置查询条件
+			Criteria criteria = example.createCriteria();
+			criteria.andParentIdEqualTo(contentCategory.getParentId());
+			//获取查询结果
+			List<TbContentCategory> list = contentCategoryMapper.selectByExample(example);
+			if (list.isEmpty()) {			
+				//创建节点对象并封装参数
+				TbContentCategory category = new TbContentCategory();				
+				category.setId(contentCategory.getParentId());
+				category.setIsParent(false);
+				//执行修改方法
+				contentCategoryMapper.updateByPrimaryKeySelective(category);
+			}
+			map.put("status", "true");
+		}
+		return map;
+	}
+	
 }

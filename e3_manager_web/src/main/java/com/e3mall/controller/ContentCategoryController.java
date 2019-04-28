@@ -1,6 +1,7 @@
 package com.e3mall.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -70,5 +71,17 @@ public class ContentCategoryController {
 	public E3Result updateCategory(Long id,String name){
 		E3Result result = contentCategoryService.updateContentCategory(id, name);
 		return result;
+	}
+	
+	/**
+	 * 根据id删除节点信息 
+	 * <p>Title: removeCategory</p>
+	 * <p>@date 2019年4月29日 上午2:46:19</p>
+	 * @param id
+	 */
+	@RequestMapping(value="/delete",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,String> removeCategory(Long id){
+		return contentCategoryService.deleteContentCategoryById(id);
 	}
 }

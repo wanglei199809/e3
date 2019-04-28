@@ -7,6 +7,7 @@
 package com.e3mall.content.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.e3mall.common.pojo.E3Result;
 import com.e3mall.common.pojo.EasyUITreeNode;
@@ -42,4 +43,11 @@ public interface ContentCategoryService {
 	 * @param name
 	 */
 	public E3Result updateContentCategory(Long parentId, String name);
+	/**
+	 * 根据id删除子节点
+	 * <p>Title: deleteContentCategoryById</p>
+	 * <p>@date 2019年4月29日 上午1:54:11</p>
+	 * @param id
+	 */
+	public Map<String,String> deleteContentCategoryById(Long id);
 }
