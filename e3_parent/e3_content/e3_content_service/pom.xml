@@ -18,12 +18,7 @@
 			<groupId>cn.wl</groupId>
 			<artifactId>e3_content_interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<!-- 分页插件 -->
-		<dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper</artifactId>
-		</dependency>
+		</dependency>		
 		<!-- 单元测试 -->
 		<dependency>
 			<groupId>junit</groupId>
