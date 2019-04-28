@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.e3mall.common.pojo.E3Result;
 import com.e3mall.common.pojo.EasyUIDataGridResult;
 import com.e3mall.pojo.TbItem;
 import com.e3mall.service.ItemService;
@@ -71,4 +73,19 @@ public class ItemController {
 		EasyUIDataGridResult result = itemService.getItemParamList(page,rows);
 		return result;
 	}
+	
+	/**
+	 * 添加商品信息
+	 * <p>Title: saveItem</p>
+	 * <p>@date 2019年4月28日 下午6:13:02</p>
+	 * @param item
+	 * @param desc
+	 */
+	@RequestMapping(value="/item/save",method=RequestMethod.POST)
+	@ResponseBody
+	public E3Result saveItem(TbItem item, String desc) {
+		E3Result result = itemService.addItem(item, desc);
+		return result;
+	}
+
 }
