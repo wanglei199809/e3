@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.e3mall.common.pojo.E3Result;
 import com.e3mall.common.pojo.EasyUITreeNode;
 import com.e3mall.content.service.ContentCategoryService;
 
@@ -40,5 +42,19 @@ public class ContentCategoryController {
 
 		List<EasyUITreeNode> list = contentCategoryService.getContentCategoryList(parentId);
 		return list;
+	}
+	
+	/**
+	 * 添加商品分类信息
+	 * <p>Title: createCategory</p>
+	 * <p>@date 2019年4月29日 上午1:11:12</p>
+	 * @param parentId 父节点id
+	 * @param name 当前节点编号
+	 */
+	@RequestMapping(value="/create",method=RequestMethod.POST)
+	@ResponseBody
+	public E3Result createCategory(Long parentId,String name){
+		E3Result result = contentCategoryService.insertContentCategory(parentId, name);
+		return result;
 	}
 }
