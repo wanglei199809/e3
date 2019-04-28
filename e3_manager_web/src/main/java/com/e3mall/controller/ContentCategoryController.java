@@ -57,4 +57,18 @@ public class ContentCategoryController {
 		E3Result result = contentCategoryService.insertContentCategory(parentId, name);
 		return result;
 	}
+	
+	/**
+	 * 商品分类重命名
+	 * <p>Title: updateCategory</p>
+	 * <p>@date 2019年4月29日 上午1:35:39</p>
+	 * @param id 当前节点id
+	 * @param name 界面名称
+	 */
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	@ResponseBody
+	public E3Result updateCategory(Long id,String name){
+		E3Result result = contentCategoryService.updateContentCategory(id, name);
+		return result;
+	}
 }

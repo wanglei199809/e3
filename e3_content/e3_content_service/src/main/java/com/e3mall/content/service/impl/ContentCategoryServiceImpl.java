@@ -94,4 +94,19 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 		return E3Result.ok(category);
 	}
 
+	/* 
+	 * @see com.e3mall.content.service.ContentCategoryService#updateContentCategory(java.lang.Long, java.lang.String) 
+	 */
+	@Override
+	public E3Result updateContentCategory(Long id, String name) {
+		//创建category并为其赋值
+		TbContentCategory category = new TbContentCategory();
+		category.setId(id);
+		category.setName(name);
+		category.setUpdated(new Date());
+		//执行业务 方法,完成商品分类重命名
+		contentCategoryMapper.updateByPrimaryKeySelective(category);
+		return E3Result.ok();
+	}
+
 }

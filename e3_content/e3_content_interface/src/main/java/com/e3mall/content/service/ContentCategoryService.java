@@ -30,9 +30,16 @@ public interface ContentCategoryService {
 	 * 添加商品分类信息
 	 * <p>Title: insertContentCategory</p>
 	 * <p>@date 2019年4月29日 上午12:32:34</p>
+	 * @param id
+	 * @param name
+	 */
+	public E3Result insertContentCategory(Long id,String name);
+	/**
+	 * 重命名商品信息
+	 * <p>Title: updateContentCategory</p>
+	 * <p>@date 2019年4月29日 上午1:32:51</p>
 	 * @param parentId
 	 * @param name
-	 * @return
 	 */
-	public E3Result insertContentCategory(Long parentId,String name);
+	public E3Result updateContentCategory(Long parentId, String name);
 }
