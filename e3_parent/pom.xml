@@ -269,4 +269,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<modules>
+		<module>e3_portal_web</module>
+	</modules>
 </project>
