@@ -271,5 +271,6 @@
 	</build>
 	<modules>
 		<module>e3_portal_web</module>
+		<module>e3_content</module>
 	</modules>
 </project>
