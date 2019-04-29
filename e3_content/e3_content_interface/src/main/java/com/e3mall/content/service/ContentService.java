@@ -7,6 +7,7 @@
 package com.e3mall.content.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.e3mall.common.pojo.E3Result;
 import com.e3mall.common.pojo.EasyUIDataGridResult;
@@ -57,5 +58,13 @@ public interface ContentService {
 	 * @return
 	 */
 	E3Result deleteBatchContentByIds(ArrayList<String> ids);
+
+	/**
+	 * 根据内容分类id,查询内容列表
+	 * <p>Title: getContentListById</p>
+	 * <p>@date 2019年4月29日 下午3:15:50</p>
+	 * @param cid
+	 */
+	List<TbContent> getContentListById(Long cid);
 
 }

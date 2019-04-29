@@ -104,4 +104,24 @@ public class ContentServiceImpl implements ContentService {
 		}
 		return E3Result.ok();
 	}
+
+	/* 
+	 * @see com.e3mall.content.service.ContentService#getContentListById(java.lang.Long) 
+	 */
+	@Override
+	public List<TbContent> getContentListById(Long cid) {
+		List<TbContent> list = null;
+		try {			
+			TbContentExample example = new TbContentExample();
+			Criteria criteria = example.createCriteria();
+			//设置查询条件
+			criteria.andCategoryIdEqualTo(cid);
+			//执行查询
+			list = contentMapper.selectByExampleWithBLOBs(example);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return list;
+		}
+		return list;
+	}
 }
