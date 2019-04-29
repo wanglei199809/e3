@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.e3mall.common.pojo.E3Result;
 import com.e3mall.common.pojo.EasyUIDataGridResult;
 import com.e3mall.content.service.ContentService;
 import com.e3mall.mapper.TbContentMapper;
@@ -51,6 +52,20 @@ public class ContentServiceImpl implements ContentService {
 		EasyUIDataGridResult result = new EasyUIDataGridResult(pageInfo.getTotal(), list);
 
 		return result;
+	}
+
+	/* 
+	 * @see com.e3mall.content.service.ContentService#saveContent(com.e3mall.pojo.TbContent) 
+	 */
+	@Override
+	public E3Result saveContent(TbContent tbContent) {
+		try {
+			contentMapper.insert(tbContent);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return E3Result.build(500, "发生系统错误!");
+		}				
+		return E3Result.ok();
 	}
 
 }
