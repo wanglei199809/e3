@@ -1,9 +1,11 @@
 package com.e3mall.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.e3mall.pojo.TbContent;
 import com.e3mall.pojo.TbContentExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface TbContentMapper {
     int countByExample(TbContentExample example);
@@ -33,4 +35,13 @@ public interface TbContentMapper {
     int updateByPrimaryKeyWithBLOBs(TbContent record);
 
     int updateByPrimaryKey(TbContent record);
+
+	/**
+	 * 根据id批量删除内容
+	 * <p>Title: deleteBatchById</p>
+	 * <p>@date 2019年4月29日 下午1:32:28</p>
+	 * @param ids
+	 * @return
+	 */
+	int deleteBatchById(List<String> ids);
 }

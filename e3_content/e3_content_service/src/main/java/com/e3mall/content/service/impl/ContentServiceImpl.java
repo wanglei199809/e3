@@ -6,6 +6,7 @@
  */
 package com.e3mall.content.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,4 +81,17 @@ public class ContentServiceImpl implements ContentService {
 		return E3Result.build(500, "系统错误");
 	}
 
+	/* 
+	 * @see com.e3mall.content.service.ContentService#deleteBatchContentByIds(java.util.List) 
+	 */
+	@Override
+	public E3Result deleteBatchContentByIds(ArrayList<String> ids) {
+		try {
+			contentMapper.deleteBatchById(ids);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return E3Result.build(500, "系统错误");
+		}
+		return E3Result.ok();
+	}
 }
