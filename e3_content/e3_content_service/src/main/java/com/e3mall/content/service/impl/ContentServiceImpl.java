@@ -7,6 +7,7 @@
 package com.e3mall.content.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,10 @@ public class ContentServiceImpl implements ContentService {
 	@Override
 	public E3Result saveContent(TbContent tbContent) {
 		try {
+			//设置保存时间和修改时间
+			tbContent.setCreated(new Date());
+			tbContent.setUpdated(new Date());
+			//执行保存操作
 			contentMapper.insert(tbContent);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,11 +79,16 @@ public class ContentServiceImpl implements ContentService {
 	 */
 	@Override
 	public E3Result updateContent(TbContent tbContent) {
-		int i = contentMapper.updateByPrimaryKey(tbContent);
-		if (i==1) {
-			return E3Result.ok();
+		try {
+			//设置修改时间
+			tbContent.setUpdated(new Date());
+			//执行业务方法
+			contentMapper.updateByPrimaryKey(tbContent);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return E3Result.build(500, "系统错误");
 		}
-		return E3Result.build(500, "系统错误");
+		return E3Result.ok();
 	}
 
 	/* 
