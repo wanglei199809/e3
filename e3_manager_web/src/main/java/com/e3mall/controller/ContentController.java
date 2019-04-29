@@ -58,4 +58,16 @@ public class ContentController {
 		return contentService.saveContent(tbContent);
 	}
 	
+	/**
+	 * 内容编辑接口
+	 * <p>Title: editContent</p>
+	 * <p>@date 2019年4月29日 下午1:13:19</p>
+	 * @param tbContent
+	 * @return
+	 */
+	@RequestMapping(value="/edit")
+	@ResponseBody
+	public E3Result editContent(TbContent tbContent){
+		return contentService.updateContent(tbContent);
+	}
 }

@@ -38,4 +38,13 @@ public interface ContentService {
 	 */
 	E3Result saveContent(TbContent tbContent);
 
+	/**
+	 * 内容编辑服务
+	 * <p>Title: updateContent</p>
+	 * <p>@date 2019年4月29日 下午1:15:00</p>
+	 * @param tbContent
+	 * @return
+	 */
+	E3Result updateContent(TbContent tbContent);
+
 }

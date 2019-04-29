@@ -68,4 +68,16 @@ public class ContentServiceImpl implements ContentService {
 		return E3Result.ok();
 	}
 
+	/* 
+	 * @see com.e3mall.content.service.ContentService#updateContent(com.e3mall.pojo.TbContent) 
+	 */
+	@Override
+	public E3Result updateContent(TbContent tbContent) {
+		int i = contentMapper.updateByPrimaryKey(tbContent);
+		if (i==1) {
+			return E3Result.ok();
+		}
+		return E3Result.build(500, "系统错误");
+	}
+
 }
