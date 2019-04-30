@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.alibaba.dubbo.common.utils.Log;
 import com.e3mall.common.jedis.JedisClient;
 import com.e3mall.common.pojo.E3Result;
 import com.e3mall.common.pojo.EasyUIDataGridResult;
