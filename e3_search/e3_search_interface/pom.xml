@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>cn.e3mall</groupId>
-		<artifactId>e3_manager</artifactId>
+		<artifactId>e3_search</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>e3_manager_interface</artifactId>
+	<artifactId>e3_search_interface</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>cn.e3mall</groupId>
