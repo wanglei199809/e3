@@ -37,11 +37,13 @@
 		<property name="maxUploadSize" value="5242880"></property>
 	</bean>
 	
-	<!-- 引用dubbo服务 -->
-	<dubbo:application name="e3_manager_service"/>
+	<!-- 设置应用名称 -->
+	<dubbo:application name="e3_manager_web"/>
 	<dubbo:registry protocol="zookeeper" address="192.168.230.3:2181"/>	
+	<!-- 引用dubbo服务 -->
 	<dubbo:reference interface="com.e3mall.service.ItemService" id="itemService" />
 	<dubbo:reference interface="com.e3mall.service.ItemCatService" id="itemCatService" />
 	<dubbo:reference interface="com.e3mall.content.service.ContentCategoryService" id="contentCategoryService" />
 	<dubbo:reference interface="com.e3mall.content.service.ContentService" id="contentService" />
+	<dubbo:reference interface="com.e3mall.search.service.SearchItemService" id="searchItemService" />
 </beans>
